@@ -157,7 +157,7 @@
 				        	<input type="checkbox" name="status" checked="checked"> Hiển thị
 				    	</label>
 				    </div>
-				    <div class="form-group">
+				    <!-- <div class="form-group">
 					    <label>
 				        	<input type="checkbox" name="tinhtrang" checked="checked"> Còn hàng
 				    	</label>
@@ -166,7 +166,7 @@
 					    <label>
 				        	<input type="checkbox" name="noibat"> Nổi bật
 				    	</label>
-				    </div>
+				    </div> -->
 				    <!-- <div class="form-group">
 					    <label>
 				        	<input type="checkbox" name="spbc"> Sale off

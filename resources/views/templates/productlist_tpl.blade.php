@@ -2,33 +2,19 @@
 @section('content')
 <?php
     $setting = Cache::get('setting');
-    $cateProducts = Cache::get('cateProducts');
-    
+    $about = Cache::get('about');
 ?>
 <div id="content">
-    <div class="page-title-wrap page-title-wrap-bg" style="background-image: url({{asset('public/images/bg-title.jpg')}});">
-    <div class="page-title-overlay"></div>
-        <div class="container">
-            <div class="page-title-inner block-center">
-                <div class="block-center-inner">
-                    <h1>Danh mục</h1>
-                    <ul class="breadcrumbs breadcrumbs-left">
-                        <!-- <li class="first">You are here:</li> -->
-                        <li class="home">
-                            <span>
-                                <a rel="v:url" href="#" class="home">
-                                    <span>Trang chủ</span>
-                                </a>
-                            </span>
-                        </li>
-                        <li>
-                            <span>Sản phẩm</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="breacdcrumbs">
+        <div class="container ">
+        <ol class="breadcrumb">
+          <li><a href="{{url('')}}">Trang chủ</a></li>
+          <!-- <li><a href="#">Library</a></li> -->
+          <li class="active">Sản phẩm</li>
+        </ol>
     </div>
+    </div>
+    
     <div class="site-content-archive">
         <div class="container clearfix">
             <div class="row clearfix">
@@ -39,16 +25,16 @@
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </aside>
+                    <!--  -->
 
                     <aside id="categories-2" class="widget widget_categories">
-                        <h4 class="widget-title"><span>Danh mục sản phẩm</span></h4>
+                        <h4 class="widget-title"><span style="font-size: 16px">Danh mục</span></h4>
                             <ul>
                                 @foreach($cate_pro as $cate)
                                 <li class="cat-item @if($cate->id == $product_cate->id) current-cat @endif">
-                                    <a href="{{url('san-pham/'.$cate->alias)}}">{{ $cate->name }}</a>
+                                    <a href="{{url('san-pham/'.$cate->alias)}}">{{$cate->name}}</a>
                                 </li>
                                 @endforeach
-
                             </ul>
                     </aside>
                 </div>
@@ -59,18 +45,20 @@
                             <div class="p-block">
                                 <a href="{{url('san-pham/'.$item->alias.'.html')}}">
                                     <img src="{{asset('upload/product/'.$item->photo)}}" alt="">
-                                    <div class="p-desc">
-                                        <p class="p-name">{{ $item->name }}</p>
-                                        <!-- <p>Hiện đại, ưu tín</p> -->
+                                    <div class="p-desc">                                       
+                                        
                                     </div>  
                                 </a>
                             </div>
+                            <p class="p-name"> <a href="{{url('san-pham/'.$item->alias.'.html')}}">{{ $item->name }}</a> </p>
                         </div>
                         @endforeach
-                       
+                        
+                        
+                        
                     </div>
-                    <div class="row"> <div class="paginations">{!! $products->links() !!}</div></div>
                 </div>
+
             </div>
         </div>
     </div>

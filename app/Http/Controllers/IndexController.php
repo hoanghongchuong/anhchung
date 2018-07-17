@@ -118,19 +118,20 @@ class IndexController extends Controller {
 	{
 		$cate_pro = DB::table('product_categories')->where('status',1)->where('parent_id',0)->orderby('id','asc')->get();
 		$productSale = DB::table('products')->select()->where('status',1)->where('spbc',1)->orderBy('id','desc')->take(6)->get();
-		$products = DB::table('products')->select()->where('status', 1);
-		$appends = [];
-		$selected = $req->sort;
-		if ($req->sort) {
-			if (isset($this->sortType[$req->sort])) {
-				$appends['sort'] = $req->sort;
-				$products = $products->orderBy($this->sortType[$req->sort]['order'][0], $this->sortType[$req->sort]['order'][1]);
-			}
-		}
-		$products = $products->paginate(9);
-		if (count($appends)) {
-			$products = $products->appends($appends);
-		}
+		$products = DB::table('products')->select()->where('status',1)->orderBy('id','desc')->paginate(12);
+		// $products = DB::table('products')->select()->where('status', 1);
+		// $appends = [];
+		// $selected = $req->sort;
+		// if ($req->sort) {
+		// 	if (isset($this->sortType[$req->sort])) {
+		// 		$appends['sort'] = $req->sort;
+		// 		$products = $products->orderBy($this->sortType[$req->sort]['order'][0], $this->sortType[$req->sort]['order'][1]);
+		// 	}
+		// }
+		// $products = $products->paginate(9);
+		// if (count($appends)) {
+		// 	$products = $products->appends($appends);
+		// }
 		$tintucs = DB::table('news')->where('com','tin-tuc')->orderBy('id','desc')->take(3)->get();
 		$setting = Cache::get('setting');
 		$com='san-pham';
@@ -152,21 +153,22 @@ class IndexController extends Controller {
 		$com='d';
 		$productSale = DB::table('products')->select()->where('status',1)->where('spbc',1)->orderBy('id','desc')->take(6)->get();
 		$product_cate = DB::table('product_categories')->select()->where('status',1)->where('alias',$id)->get()->first();
+
 		if(!empty($product_cate)){
-			// $products = DB::table('products')->select()->where('status',1)->where('cate_id',$product_cate->id)->orderBy('stt','asc')->paginate(20);
-			$products = DB::table('products')->select()->where('status', 1)->where('cate_id',$product_cate->id);
-			$appends = [];
-			$selected = $req->sort;
-			if ($req->sort) {
-				if (isset($this->sortType[$req->sort])) {
-					$appends['sort'] = $req->sort;
-					$products = $products->orderBy($this->sortType[$req->sort]['order'][0], $this->sortType[$req->sort]['order'][1]);
-				}
-			}
-			$products = $products->paginate(9);
-			if (count($appends)) {
-				$products = $products->appends($appends);
-			}
+			$products = DB::table('products')->select()->where('status',1)->where('cate_id',$product_cate->id)->orderBy('stt','asc')->paginate(12);
+			// $products = DB::table('products')->select()->where('status', 1)->where('cate_id',$product_cate->id);
+			// $appends = [];
+			// $selected = $req->sort;
+			// if ($req->sort) {
+			// 	if (isset($this->sortType[$req->sort])) {
+			// 		$appends['sort'] = $req->sort;
+			// 		$products = $products->orderBy($this->sortType[$req->sort]['order'][0], $this->sortType[$req->sort]['order'][1]);
+			// 	}
+			// }
+			// $products = $products->paginate(9);
+			// if (count($appends)) {
+			// 	$products = $products->appends($appends);
+			// }
 			$banner_danhmuc = DB::table('lienket')->select()->where('status',1)->where('com','chuyen-muc')->where('link','san-pham')->get()->first();
 			$doitac = DB::table('lienket')->select()->where('status',1)->where('com','doi-tac')->orderby('stt','asc')->get();
 			$tintucs = DB::table('news')->orderBy('id','desc')->take(3)->get();
@@ -646,7 +648,8 @@ class IndexController extends Controller {
 
     public function duan()
 	{
-		$projects = DB::table('news')->where('status', 1)->where('com', 'du-an')->orderBy('id', 'desc')->get();		
+		$projects = DB::table('news')->where('status', 1)->where('com', 'du-an')->orderBy('id', 'desc')->get();
+		// dd($projects);	
 		$com='du-an';
 		// Cấu hình SEO
 		$title = "Dự án";

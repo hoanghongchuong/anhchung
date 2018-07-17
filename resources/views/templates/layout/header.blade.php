@@ -8,12 +8,7 @@
                 <span style="margin-left: 15px; color: red"><i class="fa fa-phone"></i> : <a href="tel:{{$setting->phone}}">{{$setting->phone}}</a></span>
             </p></marquee>
         </div>
-        <!-- <ul class="col-md-3">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <!-- <li><a href="#"><i class="fa fa-rss"></i></a></li> -->
-        </ul> -->
+       
     </div>
 </div>
 <div id="nav">
@@ -37,7 +32,7 @@
                     <li><a href="{{url('gioi-thieu')}}">Giới thiệu</a></li>
                     <li><a href="{{url('san-pham')}}">Sản phẩm</a></li>
                     <li><a href="{{url('dich-vu')}}">Dịch vụ</a></li>
-                    <li><a href="{{url('kien-thuc')}}">Kiến thức</a></li>
+                    <!-- <li><a href="{{url('kien-thuc')}}">Kiến thức</a></li> -->
                     <li><a href="{{url('du-an')}}">dự án</a></li>
                     <li><a href="{{url('tin-tuc')}}">tin tức</a></li>
                     <li><a href="{{url('lien-he')}}">liên hệ</a></li>

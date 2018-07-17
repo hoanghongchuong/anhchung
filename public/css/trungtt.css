@@ -200,7 +200,7 @@ figure:hover+span {
 	margin-bottom: 0px !important;
 }
 .p-name{
-	color: #fff !important;
+	color: #000 !important;
 	text-transform: uppercase;
 }
 
@@ -522,7 +522,7 @@ display: none;
 }
 
 .p-name{
-	font-size: 25px;
+	font-size: 18px;
 }
 .p-title{
 	width: 100%;

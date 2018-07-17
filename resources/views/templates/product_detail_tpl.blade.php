@@ -62,9 +62,9 @@
 
                     </p>
                     <p class="p-price">{{number_format($product_detail->price)}}</p>
-                    <p class="p-bh">
+                    <!-- <p class="p-bh">
                         <strong>Tình trạng:</strong> @if($product_detail->tinhtrang == 1) Còn hàng @else Hết hàng @endif
-                    </p>
+                    </p> -->
                     <div class="km-box">
                         <h4>Thông tin sản phẩm</h4>
                         <div class="km-box-content">
@@ -119,11 +119,12 @@
                         <a href="{{url('san-pham/'.$ps->alias.'.html')}}">
                             <img src="{{asset('upload/product/'.$ps->photo)}}" alt="">
                             <div class="p-desc">
-                                <p class="p-name">{{$ps->name}}</p>
+                                
                                 <!-- <p>Hiện đại, ưu tín</p> -->
                             </div>  
                         </a>
                     </div>
+                   <p class="p-name"> <a href="{{url('san-pham/'.$ps->alias.'.html')}}">{{ $ps->name }}</a> </p>
                 </div>
                 @endforeach
             </div>

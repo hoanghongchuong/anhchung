@@ -28,13 +28,15 @@
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 socical">
                     <h3>liên kết</h3>
                     <ul>
-                        <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('kien-thuc')}}">Kiến thức</a></li><li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('du-an')}}">Dự án</a></li>
-                       <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('tin-tuc')}}">Tin tức</a></li>
-                        <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('lien-he')}}">Liên hệ</a></li>
+                        <!-- <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('kien-thuc')}}">Kiến thức</a></li> -->
+                        <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('du-an')}}"> Dự án</a></li>
+                       <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('tin-tuc')}}"> Tin tức</a></li>
+                        <li><img src="{{ asset('public/images/li.png')}}"><a href="{{url('lien-he')}}"> Liên hệ</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 socical">
                     <h3>facebook</h3>
+                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="300px" data-height="140px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
                 </div>
             </div>
         </div>
