@@ -9,12 +9,11 @@ $slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-th
 <div id="slide">
 	<div id="carousel-id" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
-			<div class="item active">
-				<a href="#"><img src="images/slider1.png" alt=""></a>
+			@foreach($slider as $k=>$s)
+			<div class="item @if($k==0) active @endif">
+				<a href="#"><img src="{{asset('upload/hinhanh/'.$s->photo)}}" alt=""></a>
 			</div>
-			<div class="item">
-				<a href="#"><img src="images/slider2.jpg" alt=""></a>
-			</div>
+			@endforeach
 		</div>
 		<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 		<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -23,128 +22,30 @@ $slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-th
 <div class="box-content">
 	<div class="container-fluid">
 		<div class="head-title">
-			<h1>sản phẩm chính</h1>
+			<h1>sản phẩm nổi bật</h1>
 			<span></span>
 		</div>
 		<div class="row">
+			@foreach($hot_product as $hot)
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<div class="box-product">
 					<div class="p-block">
-						<a href="#">
-							<img src="images/sp1.png" alt="">
+						<a href="{{ url('san-pham/'.$hot->alias.'.html') }}">
+							<img src="{{ asset('upload/product/'.$hot->photo) }}" alt="{{$hot->name}}">
 							
 						</a>
 					</div>
 					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
+						<p class="name-product"><a href="{{ url('san-pham/'.$hot->alias.'.html') }}">{{$hot->name}}</a></p>
+						@if($hot->price > 0)
+						<p class="p-price">{{ number_format($hot->price) }} vnđ</p>
+						@else
+						<p class="p-price">Liên hệ</p>
+						@endif
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp1.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp3.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp2.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp1.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp4.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp3.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp2.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
+			@endforeach
 			
 			
 		</div>
@@ -154,128 +55,31 @@ $slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-th
 <div class="box-content">
 	<div class="container-fluid">
 		<div class="head-title">
-			<h1>Sản phẩm bán chạy</h1>
+			<h1>Sản phẩm mới</h1>
 			<span></span>
 		</div>
 		<div class="row">
+
+			@foreach($news_product as $n)
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<div class="box-product">
 					<div class="p-block">
-						<a href="#">
-							<img src="images/sp1.png" alt="">
-							
+						<a href="{{ url('san-pham/'.$n->alias.'.html') }}">
+							<img src="{{ asset('upload/product/'.$n->photo) }}" alt="{{$n->name}}">
 						</a>
 					</div>
 					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
+						<p class="name-product"><a href="{{ url('san-pham/'.$n->alias.'.html') }}">{{$n->name}}</a></p>
+						@if($n->price > 0)
+						<p class="p-price">{{ number_format($n->price) }} vnđ</p>
+						@else
+						<p class="p-price">Liên hệ</p>
+						@endif
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp1.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
+			@endforeach
 			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp3.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp2.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp1.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp4.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp3.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="box-product">
-					<div class="p-block">
-						<a href="#">
-							<img src="images/sp2.png" alt="">
-							
-						</a>
-					</div>
-					<div class="p-infor">
-						<p class="name-product"><a href="#">Sản phẩm 1</a></p>
-						<p class="p-price">Giá:200,000</p>
-					</div>
-				</div>
-			</div>
 			
 			
 		</div>
@@ -285,29 +89,19 @@ $slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-th
 <div class="box-content bg-1">
 	<div class="container-fluid">
 		<div class="head-title">
-			<h1>Kiến thức</h1>
+			<h1>Tin tức</h1>
 			<span></span>
 		</div>
 
 		<div class="owl-carousel pro-slide">
+			@foreach($tintuc_moinhat as $news)
 			<div class="item">
-				<a href="#">
-					<img src="images/sp1.png" alt="">
-					<p>Kinh nghiệm chăm sóc cây cảnh</p>
+				<a href="{{url('tin-tuc/'.$news->alias.'.html')}}">
+					<img src="{{asset('upload/news/'.$news->photo)}}" alt="{{$news->name}}">
+					<p>{{$news->name}}</p>
 				</a>
 			</div>
-			<div class="item">
-				<a href="#">
-					<img src="images/sp2.png" alt="">
-					<p>Kinh nghiệm chăm sóc cây cảnh</p>
-				</a>
-			</div>
-			<div class="item">
-				<a href="#">
-					<img src="images/sp3.png" alt="">
-					<p>Kinh nghiệm chăm sóc cây cảnh</p>
-				</a>
-			</div>
+			@endforeach
 			
 		</div>
 	</div>
@@ -323,39 +117,19 @@ $slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-th
 				</div>
 				<div id="carousel" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
-						<div class="item active">
+						@foreach($feedback as $k=>$f)
+						<div class="item @if($k==0)active @endif">
 							<div class="cus-caption">
-								<p>"Tôi thật sự hài lòng về sản phẩm của công ty,chất lượng tốt, giá thành ổn định. Thái độ phục vụ của nhân viên tận tình, chu đáo. Tôi sẽ ủng hộ trong các dự án trong tương lai."</p>
+								<p>{!! $f->content !!}</p>
 							</div>
 
 							<div class="cus-avt">
-								<p>Tạ bích ngọc</p>
-								<i>Manager CDIT</i>
-								<img src="images/avt.png" alt="">
+								<p>{{ $f->name }}</p>
+								<p>{{$f->position}}</p>
+								<img src="{{asset('upload/hinhanh/'.$f->photo)}}" alt="">
 							</div>
 						</div>
-						<div class="item">
-							<div class="cus-caption">
-								<p>"Tôi thật sự hài lòng về sản phẩm của công ty,chất lượng tốt, giá thành ổn định. Thái độ phục vụ của nhân viên tận tình, chu đáo. Tôi sẽ ủng hộ trong các dự án trong tương lai."</p>
-							</div>
-
-							<div class="cus-avt">
-								<p>Trungtt</p>
-								<i>Manager CDIT</i>
-								<img src="images/avt.png" alt="">
-							</div>
-						</div>
-						<div class="item ">
-							<div class="cus-caption">
-								<p>"Tôi thật sự hài lòng về sản phẩm của công ty,chất lượng tốt, giá thành ổn định. Thái độ phục vụ của nhân viên tận tình, chu đáo. Tôi sẽ ủng hộ trong các dự án trong tương lai."</p>
-							</div>
-
-							<div class="cus-avt">
-								<p>Thỏ bày màu</p>
-								<i>Manager CDIT</i>
-								<img src="images/avt.png" alt="">
-							</div>
-						</div>
+						@endforeach
 					</div>
 					
 				</div>
@@ -366,24 +140,11 @@ $slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-th
 					<span></span>
 				</div>
 				<div class="row">
+					@foreach($partners as $p)
 					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-						<a href="#"><img src="images/p1.png" alt=""></a>
+						<a href="#"><img src="{{asset('upload/banner/'.$p->photo)}}" alt=""></a>
 					</div>
-					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-						<a href="#"><img src="images/p2.png" alt=""></a>
-					</div>
-					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-						<a href="#"><img src="images/p3.png" alt=""></a>
-					</div>
-					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-						<a href="#"><img src="images/p4.png" alt=""></a>
-					</div>
-					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-						<a href="#"><img src="images/p5.png" alt=""></a>
-					</div>
-					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-						<a href="#"><img src="images/p1.png" alt=""></a>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>

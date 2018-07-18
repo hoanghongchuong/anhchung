@@ -399,7 +399,9 @@ a{
 #footer h3{
 	font-size: 22px;
 }
-
+.owl-nav{
+	display: none;
+}
 
 
 
