@@ -22,7 +22,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{url('')}}"><img src="{{asset('upload/hinhanh/'.$setting->photo)}}" alt="" class="img-responsive"></a>
+                <a href="{{url('')}}"><img src="{{asset('upload/hinhanh/'.$setting->photo)}}" alt="" class="" style="width: 185px; height: 100px;"></a>
+                <p ><strong>HANOI GREEN ARCHITECTURE CO.,LTD</strong></p>
             </div>
     
             <!-- Collect the nav links, forms, and other content for toggling -->
